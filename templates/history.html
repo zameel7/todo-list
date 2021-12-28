@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sl.No.</th>
+      <th scope="col">Task</th>
+      <th scope="col">Completion</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Completion Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set count = namespace(value=1) %}
+    {% for task in tasks %}
+        <tr>
+          <td>{{  count.value }}</td>
+          <td>{{ task.topic }}</td>
+          <td>{{ task.type }}</td>
+          <td>{{ task.dt }}</td>
+          <td>{{ task.cdt }}</td>
+        </tr>
+        {% set count.value = count.value + 1 %}
+    {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}

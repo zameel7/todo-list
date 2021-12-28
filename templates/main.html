@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks
+{% endblock %}
+
+{% block main %}
+    {% if tasks | length == 0 %}
+            <div class="card mx-auto text-white bg-light">
+                    <div class="card-body">
+                        <h5 class="card-text text-dark">Add your tasks to list them out here!</h5>
+                    </div>
+            </div>
+    {% else %}
+    <h2 class="text-center">Here are your tasks: </h2><br><br>
+    <form action="/main" method="post">
+    <div class="card-columns">
+        {% for task in tasks %}
+            {% if task["type"] == "Due" %}
+                {% if task["priority"] == 3 %}
+                    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                {% elif task["priority"] == 2 %}
+                    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                {% else %}
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                {% endif %}
+                            <div class="card-header">Deadline: {{ task["dt"] }}</div>
+                            <div class="card-body">
+                                <h5 class="card-text">{{ task["topic"] }}</h5>
+                                <button class="btn btn-dark" type="submit" name="id" value="{{ task.id }}">Done</button>
+                            </div>
+                    </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    </form>
+{% endblock %}
+
+{% block tips %}
+    <div class="card bg-light text-dark w-25">
+        <p><span style="color:green;">Green</span> card is low priority task</p>
+        <p><span style="color:orange;">Orange</span> card is medium priority task</p>
+        <p><span style="color:red;">Red</span> card is high priority task</p>
+    </div>
+{% endblock %}
