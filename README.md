@@ -5,8 +5,6 @@
 
 Use the app here [TODO List](https://todolist.zameel7.repl.co/).
 
-#### [Video Demo](https://youtu.be/N7bTTossE7E)  
-
 ### Description
 
 This is the final project of CS50. 
