@@ -3,7 +3,7 @@
 
 ![This is the logo](/static/icon.ico)
 
-Use the app here [TODO List](todolist.zameel7.repl.co).
+Use the app here [TODO List](https://todolist.zameel7.repl.co/).
 
 #### [Video Demo](https://youtu.be/N7bTTossE7E)  
 
