@@ -74,7 +74,7 @@ def addT():
 
         y, m, d = [int(x) for x in deadline.split('-')]
         if date(y,m,d) < date.today():
-            flash("Deadline already over!")
+            flash("Your task is past the deadline!")
             return redirect("/addtask")
 
         if priority == "HIGH":
