@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from threading import Thread
 from helpers import apology, login_required
 
 # Configure application
@@ -173,3 +173,8 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+if __name__ == '__main__':
+    # Run the Flask app
+    t = Thread(target=app.run(host='0.0.0.0', port=8080, debug=True))
+    t.start()
